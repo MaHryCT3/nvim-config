@@ -55,9 +55,6 @@ Plug 'prettier/vim-prettier', {
 
 Plug 'bmatcuk/stylelint-lsp'
 
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-
 " Convenient floating terminal window
 "Plug 'voldikss/vim-floaterm'
 
@@ -353,10 +350,6 @@ let g:transparent_enabled = v:true
 
 tnoremap <Esc> <C-\><C-n>
 
-" Telescope bindings
-nnoremap ,f <cmd>Telescope find_files<cr>
-nnoremap ,g <cmd>Telescope live_grep<cr>
-
 " Go to next or prev tab by H and L accordingly
 nnoremap H gT
 nnoremap L gt
@@ -370,10 +363,6 @@ require("auto-save").setup(
 )
 EOF
 
-" Telescope fzf plugin
-lua << EOF
-require('telescope').load_extension('fzf')
-EOF
 
 " Fast component creating for React app
 command CreateComponent :terminal '/Users/alexeygoloburdin/code/lms/frontend/createcomponent.py'
