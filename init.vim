@@ -60,28 +60,23 @@ Plug 'bmatcuk/stylelint-lsp'
 
 Plug 'ray-x/lsp_signature.nvim'
 
+" Telescope
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+
 call plug#end()
 
 " Leader bind to space
 let mapleader = ","
 
-" Netrw file explorer settings
-let g:netrw_banner = 0 " hide banner above files
-let g:netrw_liststyle = 3 " tree instead of plain view
-let g:netrw_browse_split = 3 " vertical split window when Enter pressed on file
-
-" Automatically format frontend files with prettier after file save
-let g:prettier#autoformat = 1
-let g:prettier#autoformat_require_pragma = 0
-
-" Disable quickfix window for prettier
+"dasdadasdad Disable quickfix window for prettier
 let g:prettier#quickfix_enabled = 0
 
 " Turn on vim-sneak
 let g:sneak#label = 1
 
-colorscheme gruvbox
-"colorscheme OceanicNext
+"colorscheme gruvbox
+colorscheme OceanicNext
 "let g:material_terminal_italics = 1
 " variants: default, palenight, ocean, lighter, darker, default-community,
 "           palenight-community, ocean-community, lighter-community,
@@ -99,6 +94,9 @@ endif
 " turn off search highlight
 nnoremap ,<space> :nohlsearch<CR>
 
+nnoremap ff <cmd>Telescope find_files<cr>
+nnoremap fg <cmd>Telescope live_grep<cr>
+
 lua << EOF
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -110,9 +108,6 @@ local async = require "plenary.async"
 -- nvim-cmp setup
 local cmp = require 'cmp'
 cmp.setup {
-  completion = {
-    autocomplete = false
-  },
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
@@ -341,7 +336,7 @@ autocmd FileType c imap <buffer> <C-h> <esc>:w<CR>:exec '!gcc' shellescape(@%, 1
 autocmd FileType sh map <buffer> <C-h> :w<CR>:exec '!bash' shellescape(@%, 1)<CR>
 autocmd FileType sh imap <buffer> <C-h> <esc>:w<CR>:exec '!bash' shellescape(@%, 1)<CR>
 
-autocmd FileType python set colorcolumn=79
+autocmd FileType python set colorcolumn=110
 
 set relativenumber
 set rnu
