@@ -22,6 +22,8 @@ inoremap jk <esc>
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -63,6 +65,8 @@ Plug 'ray-x/lsp_signature.nvim'
 " Telescope
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 call plug#end()
 
